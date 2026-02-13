@@ -100,4 +100,26 @@ function createFloatingHearts() {
     setTimeout(()=>heart.remove(),4000);
   }
              }
+/* BACKGROUND FLOATING HEARTS */
+
+function createBackgroundHeart() {
+  const heart = document.createElement("div");
+  heart.className = "bg-heart";
+  heart.innerHTML = "❤️";
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+  heart.style.animationDuration = (Math.random() * 6 + 6) + "s";
+  heart.style.animationDelay = Math.random() * 5 + "s";
+
+  document.querySelector(".floating-hearts").appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 12000);
+}
+
+/* Generate hearts continuously */
+setInterval(createBackgroundHeart, 800);
+                   
     
