@@ -7,35 +7,26 @@ function smoothRedirect(page) {
 
 /* MULTIPLE PASSWORDS — CASE INSENSITIVE */
 function checkPassword() {
-  const allowedPasswords = [
+  const input = document.getElementById("passwordInput").value.trim().toLowerCase();
+
+  // Add all allowed passwords here (in lowercase only)
+  const validPasswords = [
     "bestie",
-    "Angella",
-    "Shrily",
-    "Shoharji",
-    "shundori",
-    "Pallabi",
-    "pall",
-    "Ritu",
-    "rits",
-    "Ana",
-    "Anu",
-    "Sagnika",
-    "Jabeda",
     "shrily",
-    "angella"
+    "angella",
+    "shoharji",
+    "ana",
+    "anu",
+    "sagnika",
+    "jabeda",
+    "rits",
+    "ritu"
   ];
 
-  const entered = document
-    .getElementById("password")
-    .value
-    .trim()
-    .toLowerCase();
-
-  if (allowedPasswords.includes(entered)) {
+  if (validPasswords.includes(input)) {
     smoothRedirect("reasons.html");
   } else {
-    document.getElementById("error").innerText =
-      "That’s not the name I call you 😭 try again!";
+    alert("Hmm… that's not what you call me 😌 Try again.");
   }
 }
 
