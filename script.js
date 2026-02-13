@@ -5,26 +5,30 @@
   }, 600);
 }
 
+/* MULTIPLE PASSWORDS — CASE INSENSITIVE */
 function checkPassword() {
-  const input = document.getElementById("passwordInput").value.trim().toLowerCase();
+  const input = document.getElementById("password").value.trim().toLowerCase();
+  const error = document.getElementById("error");
+  const music = document.getElementById("bgMusic");
 
   const validPasswords = [
-    "bestie",
     "shrily",
     "angella",
     "shoharji",
+    "rits",
+    "ritu",
     "ana",
     "anu",
     "sagnika",
-    "jabeda",
-    "rits",
-    "ritu"
+    "jabeda"
   ];
 
   if (validPasswords.includes(input)) {
+    error.innerText = "";
+    music.play().catch(() => {});
     smoothRedirect("reasons.html");
   } else {
-    alert("Hmm… that's not what you call me 😌 Try again.");
+    error.innerText = "Wrong secret name 💔 Try again!";
   }
 }
 
