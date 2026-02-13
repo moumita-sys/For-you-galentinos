@@ -9,7 +9,6 @@
 function checkPassword() {
   const input = document.getElementById("password").value.trim().toLowerCase();
   const error = document.getElementById("error");
-  const music = document.getElementById("bgMusic");
 
   const validPasswords = [
     "shrily",
@@ -24,11 +23,9 @@ function checkPassword() {
   ];
 
   if (validPasswords.includes(input)) {
-    error.innerText = "";
-    music.play().catch(() => {});
     smoothRedirect("reasons.html");
   } else {
-    error.innerText = "Wrong secret name 💔 Try again!";
+    error.innerText = "Hmm that's not what I call you💔 Try again!";
   }
 }
 
