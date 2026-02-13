@@ -1,60 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Galentine 💕</title>
+  <title>Galentine 💕</title>
 
-    <!-- Google Cute Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="fade-in">
 
-<!-- Proposal Section -->
-<div class="page center" id="proposalSection">
-  <h2>Will you be my Galentine? 💕</h2>
-
-  <button onclick="sayYes()">YES 😭💗</button>
-  <button onclick="moveNo(this)">No 🙄</button>
-</div>
-
-<!-- Final Section -->
-<div class="page center hidden" id="finalSection">
-
-  <h1 class="yay-text">Yaay!! 🎉</h1>
-<h2 class="confirm-text">Galentine's Date Confirmed</h2>
-
-<p class="big-text">When: whenever you want jaaneman 💋</p>
-<p class="big-text">Where: At your fav. spot!</p>
-
-<p class="song-line">I like me better when I am with you 💖</p>
-  
-  <h2>Happy Galentine's Day 💖</h2>
-
-  <h3 class="signature">With love, Srijannita 💌</h3>
-
-  <!-- Love Meter -->
-  <div class="love-meter-container">
-    <p>Love Meter 💕</p>
-    <div class="love-meter">
-      <div class="love-fill" id="loveFill"></div>
-    </div>
-  </div>
-
-  <!-- Secret Message -->
-  <p id="secretMessage" class="secret hidden">
-    You unlocked the secret 😌💌 You’re stuck with me forever.
-  </p>
-
-  <canvas id="confetti"></canvas>
-
-</div>
+<body>
 
 <audio id="bgMusic" loop>
   <source src="Lauv - I Like Me Better (Lyrics) i like me better when i'm with you.mp3" type="audio/mpeg">
 </audio>
 
+<!-- PROPOSAL SECTION -->
+<div class="page center" id="proposalSection">
+  <h2>Will you be my Galentine? 💕</h2>
+  <button onclick="sayYes()">YES 😭💗</button>
+  <button onclick="moveNo(this)">No 🙄</button>
+</div>
+
+<!-- YAY SECTION -->
+<div class="page center hidden" id="yaySection">
+  <h1 class="yay-pop">YAYY!! 🎉</h1>
+  <canvas id="confetti"></canvas>
+</div>
+
+<!-- FINAL CONFIRMATION -->
+<div class="page center hidden" id="finalSection">
+
+  <h1 class="confirm-main">Galentine's Date Confirmed 💖</h1>
+
+  <p class="subscription">
+    This friendship?<br>
+    <span>Lifetime subscription.</span><br>
+    No cancellation allowed.
+  </p>
+
+  <p class="big-text">When: whenever you want jaaneman 💋</p>
+  <p class="big-text">Where: At your fav. spot!</p>
+
+  <p class="song-line">I like me better when I am with you 💖</p>
+
+  <h2 class="happy-text">Happy Galentine's Day 💞</h2>
+
+  <h3 class="signature">With love, Srijannita 💌</h3>
+
+</div>
+
 <script src="script.js"></script>
 </body>
-    </html>
-    
+</html>
