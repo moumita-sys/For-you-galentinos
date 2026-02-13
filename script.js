@@ -1,29 +1,21 @@
-    function smoothRedirect(page) {
+function smoothRedirect(page) {
   document.body.classList.add("fade-out");
   setTimeout(() => {
     window.location.href = page;
   }, 600);
 }
 
-/* MULTIPLE PASSWORDS — CASE INSENSITIVE */
 function checkPassword() {
   const input = document.getElementById("password").value.trim().toLowerCase();
   const error = document.getElementById("error");
 
   const validPasswords = [
-    "shrily",
-    "angella",
-    "shoharji",
-    "rits",
-    "ritu",
-    "ana",
-    "anu",
-    "sagnika",
-    "jabeda"
+    "shrily","angella","shoharji","rits","ritu","ana","anu","sagnika","jabeda"
   ];
 
   if (validPasswords.includes(input)) {
-    smoothRedirect("reasons.html");
+    createFloatingHearts();
+    setTimeout(() => smoothRedirect("reasons.html"), 1500);
   } else {
     error.innerText = "Hmm that's not what I call you💔 Try again!";
   }
@@ -33,33 +25,26 @@ function goToProposal() {
   smoothRedirect("proposal.html");
 }
 
+/* YES FLOW */
 function sayYes() {
-    const music = document.getElementById("bgMusic");
-    const proposal = document.getElementById("proposal");
-    const final = document.getElementById("final");
-    const loveFill = document.getElementById("loveFill");
+  const music = document.getElementById("bgMusic");
+  const proposal = document.getElementById("proposalSection");
+  const yay = document.getElementById("yaySection");
+  const final = document.getElementById("finalSection");
 
-    if (music) {
-        music.play(); // song starts after YES
-    }
+  music.play();
 
-    proposal.classList.add("fade-out");
+  proposal.classList.add("hidden");
+  yay.classList.remove("hidden");
 
-    setTimeout(() => {
-        proposal.style.display = "none";
-        final.classList.remove("hidden");
-        final.classList.add("fade-in");
+  startConfetti();
 
-        // LOVE METER FILL
-        setTimeout(() => {
-            loveFill.style.width = "100%";
-        }, 600);
-
-        // CONFETTI BURST
-        startConfetti();
-
-    }, 800);
-      }
+  setTimeout(() => {
+    stopConfetti();
+    yay.classList.add("hidden");
+    final.classList.remove("hidden");
+  }, 3000);
+}
 
 function moveNo(button) {
   button.style.position = "absolute";
@@ -67,10 +52,11 @@ function moveNo(button) {
   button.style.left = Math.random() * 400 + "px";
 }
 
+/* CONFETTI */
+let confettiAnimation;
+
 function startConfetti() {
   const canvas = document.getElementById("confetti");
-  if (!canvas) return;
-
   const ctx = canvas.getContext("2d");
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
@@ -89,30 +75,29 @@ function startConfetti() {
       ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
       ctx.fillStyle = p.color;
       ctx.fill();
-      p.y += 2;
+      p.y += 3;
       if (p.y > canvas.height) p.y = 0;
     });
-    requestAnimationFrame(draw);
+    confettiAnimation = requestAnimationFrame(draw);
   }
-
   draw();
 }
 
-/* Tap 3 Times Secret */
-let tapCount = 0;
+function stopConfetti() {
+  cancelAnimationFrame(confettiAnimation);
+}
 
-document.addEventListener("click", function() {
-  tapCount++;
+/* RANDOM HEART FLOAT AFTER UNLOCK */
+function createFloatingHearts() {
+  for (let i=0;i<20;i++) {
+    const heart = document.createElement("div");
+    heart.innerHTML = "❤️";
+    heart.className = "random-heart";
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.animationDuration = (Math.random()*3+2)+"s";
+    document.body.appendChild(heart);
 
-  if (tapCount === 3) {
-    const secret = document.getElementById("secretMessage");
-    if (secret) {
-      secret.classList.remove("hidden");
-    }
+    setTimeout(()=>heart.remove(),4000);
   }
-
-  setTimeout(() => {
-    tapCount = 0;
-  }, 1000);
-});
-      
+             }
+    
