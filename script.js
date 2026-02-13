@@ -34,29 +34,32 @@ function goToProposal() {
 }
 
 function sayYes() {
-  const music = document.getElementById("bgMusic");
-  const proposal = document.getElementById("proposalSection");
-  const final = document.getElementById("finalSection");
-  const loveFill = document.getElementById("loveFill");
+    const music = document.getElementById("bgMusic");
+    const proposal = document.getElementById("proposal");
+    const final = document.getElementById("final");
+    const loveFill = document.getElementById("loveFill");
 
-  if (music) {
-    music.play();
-  }
+    if (music) {
+        music.play(); // song starts after YES
+    }
 
-  proposal.classList.add("fade-out");
-
-  setTimeout(() => {
-    proposal.style.display = "none";
-    final.classList.remove("hidden");
-    final.classList.add("fade-in");
+    proposal.classList.add("fade-out");
 
     setTimeout(() => {
-      loveFill.style.width = "100%";
-    }, 500);
+        proposal.style.display = "none";
+        final.classList.remove("hidden");
+        final.classList.add("fade-in");
 
-    startConfetti();
-  }, 800);
-}
+        // LOVE METER FILL
+        setTimeout(() => {
+            loveFill.style.width = "100%";
+        }, 600);
+
+        // CONFETTI BURST
+        startConfetti();
+
+    }, 800);
+      }
 
 function moveNo(button) {
   button.style.position = "absolute";
