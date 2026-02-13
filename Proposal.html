@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Galentine 💖</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="fade-in">
+
+<div class="floating-hearts"></div>
+<audio id="bgMusic" loop>
+  <source src="Lauv - I Like Me Better (Lyrics) i like me better when i'm with you.mp3" type="audio/mpeg">
+</audio>
+
+<div class="page center">
+  <h1>Will you be my Galentine? 💕</h1>
+
+  <div class="love-meter">
+    <div id="loveFill"></div>
+  </div>
+
+  <div class="buttons">
+    <button onclick="celebrateYes()">Yes 💖</button>
+    <button onclick="moveNo(this)">No 🙈</button>
+  </div>
+
+  <p id="countdown"></p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
