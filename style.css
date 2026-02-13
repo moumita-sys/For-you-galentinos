@@ -122,3 +122,51 @@ button:hover {
   from { transform: translate(-50%, -50%) scale(0); }
   to { transform: translate(-50%, -50%) scale(1); }
 }
+
+.hidden {
+  display: none;
+}
+
+.big-text {
+  font-size: 22px;
+  margin: 10px 0;
+}
+
+.song-line {
+  font-style: italic;
+  margin: 20px 0;
+  font-size: 20px;
+  color: #d63384;
+}
+
+.signature {
+  margin-top: 30px;
+  font-size: 24px;
+}
+
+.love-meter-container {
+  margin-top: 30px;
+}
+
+.love-meter {
+  width: 250px;
+  height: 20px;
+  background: #ffd6ec;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 10px auto;
+}
+
+.love-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(to right, hotpink, deeppink);
+  transition: width 2s ease;
+}
+
+.secret {
+  margin-top: 25px;
+  font-size: 18px;
+  color: #d63384;
+  }
+                              
