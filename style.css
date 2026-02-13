@@ -1,31 +1,27 @@
+  /* -------------------- GLOBAL -------------------- */
+
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
   background: linear-gradient(135deg, #ffdde1, #ee9ca7);
-  overflow-x: hidden;
   color: white;
   text-align: center;
-  transition: opacity 0.6s ease;
-}
-
-.fade-in {
-  animation: fade 1s ease-in-out;
-}
-
-@keyframes fade {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  overflow-x: hidden;
 }
 
 .page {
   padding: 60px 20px;
-  position: relative;
-  z-index: 2;
 }
 
 .center {
   margin-top: 100px;
 }
+
+.hidden {
+  display: none;
+}
+
+/* -------------------- BUTTONS -------------------- */
 
 button {
   padding: 12px 25px;
@@ -35,8 +31,9 @@ button {
   color: #e75480;
   font-weight: bold;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.3s ease;
   box-shadow: 0 0 15px rgba(255,255,255,0.4);
+  margin: 10px;
 }
 
 button:hover {
@@ -44,87 +41,90 @@ button:hover {
   box-shadow: 0 0 25px rgba(255,255,255,0.7);
 }
 
-.romantic-text { margin-bottom: 20px; }
-.error-text { margin-top: 10px; }
+/* -------------------- HEART REASON CARDS -------------------- */
 
-/* Floating hearts */
-.floating-hearts span {
-  position: absolute;
-  bottom: 0;
-  animation: floatUp 10s linear infinite;
-}
-
-@keyframes floatUp {
-  from { transform: translateY(0); opacity: 0.7; }
-  to { transform: translateY(-100vh); opacity: 0; }
-}
-
-/* Reason Cards */
 .reasons-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
-  margin: 40px auto;
-  width: 90%;
-  max-width: 900px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 40px;
 }
 
 .reason-card {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
+  position: relative;
+  width: 260px;
+  min-height: 180px;
+  padding: 45px 25px 30px 25px;
+  text-align: center;
+  color: white;
+  font-size: 17px;
+  line-height: 1.5;
+  font-weight: 500;
+  background: #ff4d88;
   border-radius: 25px;
-  padding: 25px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  transition: 0.4s ease;
-  animation: fadeUp 0.8s ease forwards;
-  opacity: 0;
+  animation: heartPulse 2.5s infinite ease-in-out;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-.reason-card:hover {
-  transform: translateY(-8px) scale(1.03);
+/* Heart circles */
+.reason-card::before,
+.reason-card::after {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  background: #ff4d88;
+  border-radius: 50%;
+  top: -130px;
+  left: 0;
+  z-index: -1;
 }
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+.reason-card::after {
+  left: 130px;
 }
 
-/* Love meter */
-.love-meter {
-  width: 80%;
-  height: 20px;
-  background: rgba(255,255,255,0.3);
-  border-radius: 20px;
-  margin: 20px auto;
+@keyframes heartPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
 
-#loveFill {
-  height: 100%;
-  width: 0%;
-  background: #ff0066;
-  border-radius: 20px;
-  transition: width 2s ease;
+/* -------------------- YAY POP -------------------- */
+
+.yay-pop {
+  font-family: 'Pacifico', cursive;
+  font-size: 80px;
+  color: #ff2e75;
+  animation: pop 0.6s ease forwards;
 }
 
-/* Sparkle */
-.sparkle {
-  position: fixed;
-  pointer-events: none;
-  animation: sparkleFade 0.8s linear forwards;
+@keyframes pop {
+  0% { transform: scale(0); }
+  80% { transform: scale(1.2); }
+  100% { transform: scale(1); }
 }
 
-@keyframes sparkleFade {
-  from { opacity: 1; }
-  to { opacity: 0; }
+/* -------------------- FINAL CONFIRMATION -------------------- */
+
+.confirm-main {
+  font-family: 'Pacifico', cursive;
+  font-size: 50px;
+  color: #ff2e75;
+  margin-bottom: 20px;
 }
 
-@keyframes popYay {
-  from { transform: translate(-50%, -50%) scale(0); }
-  to { transform: translate(-50%, -50%) scale(1); }
+.subscription {
+  font-family: 'Dancing Script', cursive;
+  font-size: 34px;
+  line-height: 1.6;
+  margin-bottom: 25px;
 }
 
-.hidden {
-  display: none;
+.subscription span {
+  font-size: 40px;
+  color: #ff0066;
 }
 
 .big-text {
@@ -139,17 +139,26 @@ button:hover {
   color: #d63384;
 }
 
-.signature {
-  margin-top: 30px;
-  font-size: 24px;
+.happy-text {
+  font-family: 'Dancing Script', cursive;
+  font-size: 32px;
+  margin-top: 25px;
+  color: #ff3385;
 }
 
-.love-meter-container {
+.signature {
   margin-top: 30px;
+  font-size: 22px;
+}
+
+/* -------------------- LOVE METER -------------------- */
+
+.love-meter-container {
+  margin-top: 35px;
 }
 
 .love-meter {
-  width: 250px;
+  width: 260px;
   height: 20px;
   background: #ffd6ec;
   border-radius: 20px;
@@ -161,155 +170,18 @@ button:hover {
   height: 100%;
   width: 0%;
   background: linear-gradient(to right, hotpink, deeppink);
+  border-radius: 20px;
   transition: width 2s ease;
 }
 
 .secret {
-  margin-top: 25px;
+  margin-top: 20px;
   font-size: 18px;
   color: #d63384;
-  }
-                              
-/* YAY STYLE */
-.yay-text {
-    font-family: 'Pacifico', cursive;
-    font-size: 65px;
-    color: #ff4d88;
-    margin-bottom: 5px;
-    animation: fadeIn 1s ease-in-out;
 }
 
-.confirm-text {
-    font-family: 'Dancing Script', cursive;
-    font-size: 34px;
-    margin-bottom: 20px;
-    animation: fadeIn 2s ease-in-out;
-}
+/* -------------------- FLOATING RANDOM HEARTS -------------------- */
 
-/* Floating Love Background */
-.floating-hearts::before {
-    content: "💖 💕 💗 💓 💞";
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    font-size: 20px;
-    animation: heartsMove 15s linear infinite;
-    opacity: 0.4;
-}
-
-@keyframes heartsMove {
-    from { transform: translateY(100vh); }
-    to { transform: translateY(-100vh); }
-      }
-
-        .happy-text {
-    font-family: 'Dancing Script', cursive;
-    font-size: 32px;
-    margin-top: 25px;
-    color: #ff3385;
-    animation: fadeIn 2.5s ease-in-out;
-  }
-
-/* FINAL PAGE FULL CENTER */
-.final-body {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(135deg, #ffd1dc, #ff9eb5);
-  text-align: center;
-  color: white;
-}
-
-/* Container */
-.final-container {
-  max-width: 500px;
-  padding: 20px;
-}
-
-/* YES Heading */
-.final-yes {
-  font-family: 'Pacifico', cursive;
-  font-size: 55px;
-  color: #ff2e75;
-  margin-bottom: 25px;
-}
-
-/* Main Line Styling */
-.final-main-line {
-  font-family: 'Dancing Script', cursive;
-  font-size: 36px;
-  line-height: 1.6;
-}
-
-.final-main-line span {
-  font-size: 42px;
-  color: #ff0066;
-}
-
-/* Signatures */
-.final-signatures {
-  margin-top: 40px;
-  font-size: 18px;
-  opacity: 0.9;
-  }
-
-/* HEART SHAPED REASON BOX */
-.reason-card {
-  width: 220px;
-  height: 200px;
-  background: #ff4d88;
-  position: relative;
-  transform: rotate(-45deg);
-  margin: 50px auto;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:20px;
-  color:white;
-}
-
-.reason-card::before,
-.reason-card::after {
-  content:"";
-  width:220px;
-  height:200px;
-  background:#ff4d88;
-  border-radius:50%;
-  position:absolute;
-}
-
-.reason-card::before {
-  top:-110px;
-  left:0;
-}
-
-.reason-card::after {
-  left:110px;
-  top:0;
-}
-
-.reason-card div {
-  transform: rotate(45deg);
-}
-
-/* YAY POP */
-.yay-pop {
-  font-family:'Pacifico',cursive;
-  font-size:80px;
-  color:#ff2e75;
-  animation: pop 0.6s ease forwards;
-}
-
-@keyframes pop {
-  0% { transform: scale(0); }
-  80% { transform: scale(1.2); }
-  100% { transform: scale(1); }
-}
-
-/* RANDOM HEART FLOAT */
 .random-heart {
   position: fixed;
   bottom: 0;
@@ -318,6 +190,46 @@ button:hover {
 }
 
 @keyframes floatHeart {
-  from { transform: translateY(0); opacity:1; }
-  to { transform: translateY(-100vh); opacity:0; }
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-100vh); opacity: 0; }
+  }
+
+/* -------------------- BACKGROUND FLOATING HEARTS -------------------- */
+
+.floating-hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
 }
+
+.bg-heart {
+  position: absolute;
+  bottom: -50px;
+  animation: floatUp linear forwards;
+  opacity: 0.7;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-50vh) translateX(20px);
+  }
+  100% {
+    transform: translateY(-110vh) translateX(-20px);
+    opacity: 0;
+  }
+}
+
+/* Make content stay above hearts */
+.page {
+  position: relative;
+  z-index: 2;
+    }
