@@ -170,3 +170,43 @@ button:hover {
   color: #d63384;
   }
                               
+/* YAY STYLE */
+.yay-text {
+    font-family: 'Pacifico', cursive;
+    font-size: 65px;
+    color: #ff4d88;
+    margin-bottom: 5px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.confirm-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 34px;
+    margin-bottom: 20px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Floating Love Background */
+.floating-hearts::before {
+    content: "💖 💕 💗 💓 💞";
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    font-size: 20px;
+    animation: heartsMove 15s linear infinite;
+    opacity: 0.4;
+}
+
+@keyframes heartsMove {
+    from { transform: translateY(100vh); }
+    to { transform: translateY(-100vh); }
+      }
+
+        .happy-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 32px;
+    margin-top: 25px;
+    color: #ff3385;
+    animation: fadeIn 2.5s ease-in-out;
+  }
