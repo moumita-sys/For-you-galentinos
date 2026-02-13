@@ -1,31 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Galentine 💖</title>
+  <title>Galentine 💕</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="fade-in">
 
-<div class="floating-hearts"></div>
+<!-- Proposal Section -->
+<div class="page center" id="proposalSection">
+  <h2>Will you be my Galentine? 💕</h2>
+
+  <button onclick="sayYes()">YES 😭💗</button>
+  <button onclick="moveNo(this)">No 🙄</button>
+</div>
+
+<!-- Final Section -->
+<div class="page center hidden" id="finalSection">
+
+  <h1 class="yay">YAYY!! Galentine’s Date Confirmed 💕</h1>
+
+  <p class="big-text">When: whenever you want jaaneman 💋</p>
+  <p class="big-text">Where: At your fav. spot! ✨</p>
+
+  <p class="song-line">I like me better when I am with you 💗</p>
+
+  <h2>Happy Galentine's Day 💖</h2>
+
+  <h3 class="signature">With love, Srijannita 💌</h3>
+
+  <!-- Love Meter -->
+  <div class="love-meter-container">
+    <p>Love Meter 💕</p>
+    <div class="love-meter">
+      <div class="love-fill" id="loveFill"></div>
+    </div>
+  </div>
+
+  <!-- Secret Message -->
+  <p id="secretMessage" class="secret hidden">
+    You unlocked the secret 😌💌 You’re stuck with me forever.
+  </p>
+
+  <canvas id="confetti"></canvas>
+
+</div>
+
 <audio id="bgMusic" loop>
   <source src="Lauv - I Like Me Better (Lyrics) i like me better when i'm with you.mp3" type="audio/mpeg">
 </audio>
 
-<div class="page center">
-  <h1>Will you be my Galentine? 💕</h1>
-
-  <div class="love-meter">
-    <div id="loveFill"></div>
-  </div>
-
-  <div class="buttons">
-    <button onclick="celebrateYes()">Yes 💖</button>
-    <button onclick="moveNo(this)">No 🙈</button>
-  </div>
-
-  <p id="countdown"></p>
-</div>
-
 <script src="script.js"></script>
 </body>
-</html>
+    </html>
+    
